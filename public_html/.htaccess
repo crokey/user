@@ -1,0 +1,21 @@
+RewriteEngine On
+
+# Ensure that https and www are not part of the problem, by first redirecting to a consistent base if needed (optional step, remove if not required)
+RewriteCond %{HTTP_HOST} ^www\. [NC,OR]
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://user.bearlapay.com%{REQUEST_URI} [L,R=301]
+
+# Redirect from https://user.bearlapay.com/ to https://user.bearlapay.com/MMS/admin
+RewriteCond %{HTTP_HOST} ^user\.bearlapay\.com$ [NC]
+RewriteRule ^$ /MMS/admin [R=301,L]
+
+# Redirect from https://user.bearlapay.com/MMS/ to https://user.bearlapay.com/MMS/admin
+RewriteCond %{HTTP_HOST} ^user\.bearlapay\.com$ [NC]
+RewriteRule ^MMS/?$ /MMS/admin [R=301,L]
+
+
+# Directly accessing /guides
+RewriteRule ^Manuals$ /build/index.html [L,NC]
+
+# Accessing any file within /guides
+RewriteRule ^Manuals/(.*)$ /build/$1 [L,NC]

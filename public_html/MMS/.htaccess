@@ -1,0 +1,20 @@
+RewriteEngine On
+AddDefaultCharset utf-8
+
+# Redirect /MMS/ to /MMS/admin
+RewriteRule ^MMS/$ /MMS/admin [R=301,L]
+
+<IfModule mod_rewrite.c>
+    # Exclude the redirection rule from CodeIgniter routing
+    RewriteCond %{REQUEST_URI} !^/MMS/admin [NC]
+    
+    # Normalize multiple slashes to a single slash
+    RewriteCond %{REQUEST_URI} ^(.*)//+(.*)$
+    RewriteRule . %1/%2 [R=301,L]
+
+    # Process all requests via index.php, excluding certain directories and files
+    RewriteCond $1 !^(index\.php|resources|robots\.txt)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+</IfModule>

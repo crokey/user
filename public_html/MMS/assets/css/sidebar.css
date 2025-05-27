@@ -1,0 +1,43 @@
+.pb {
+  padding-bottom: 2.5rem;
+  width: 180px;
+}
+.pt {
+  padding-top: 2.5rem;
+}
+.maincolor {
+  background-color: #fff;
+}
+
+
+.btn-primary {
+        background-color: #15213a;
+        border-color: #15213a;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:hover:active,
+    .btn-primary:focus {
+        background-color: #048593;
+        border-color: #048593;
+    }
+
+
+
+.pagination > li > a:focus, .pagination > li > a:hover,
+    .pagination > li > span:focus, .pagination > li > span:hover,
+    .pagination > li > a,
+    .pagination > li > span {
+        color: #15213a;
+    }
+
+.pagination > .active > a,
+    .pagination > .active > a:focus,
+    .pagination > .active > a:hover,
+    .pagination > .active > span,
+    .pagination > .active > span:focus,
+    .pagination > .active > span:hover {
+        background-color: #15213a;
+        border-color: #15213a;
+    }
